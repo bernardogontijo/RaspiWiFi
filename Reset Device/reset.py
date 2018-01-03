@@ -11,25 +11,25 @@ GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 counter = 0
 
 def update_config_paths():
-	project_path = os.path.dirname(os.path.abspath(__file__))
-	os.system('sudo cp -a Reset\ Device/static_files/rc.local.aphost.template Reset\ Device/static_files/rc.local.aphost')
-	os.system('sudo cp -a Reset\ Device/static_files/rc.local.apclient.template Reset\ Device/static_files/rc.local.apclient')
-	os.system('sudo cp -a Reset\ Device/reset.py.template Reset\ Device/reset.py')
+    project_path = os.path.dirname(os.path.abspath(__file__))
+    os.system('sudo cp -a Reset\ Device/static_files/rc.local.aphost.template Reset\ Device/static_files/rc.local.aphost')
+    os.system('sudo cp -a Reset\ Device/static_files/rc.local.apclient.template Reset\ Device/static_files/rc.local.apclient')
+    os.system('sudo cp -a Reset\ Device/reset.py.template Reset\ Device/reset.py')
 
-	with fileinput.FileInput("Reset Device/static_files/rc.local.aphost", inplace=True) as file:
-		for line in file:
-			print(line.replace("[[project_dir]]", project_path), end='')
-		file.close
+    with fileinput.FileInput("Reset Device/static_files/rc.local.aphost", inplace=True) as file:
+        for line in file:
+            print(line.replace("[[project_dir]]", project_path), end='')
+        file.close
 
-	with fileinput.FileInput("Reset Device/static_files/rc.local.apclient", inplace=True) as file:
-		for line in file:
-			print(line.replace("[[project_dir]]", project_path), end='')
-		file.close
+    with fileinput.FileInput("Reset Device/static_files/rc.local.apclient", inplace=True) as file:
+        for line in file:
+            print(line.replace("[[project_dir]]", project_path), end='')
+        file.close
 
-	with fileinput.FileInput("Reset Device/reset.py", inplace=True) as file:
-		for line in file:
-			print(line.replace("[[project_dir]]", project_path), end='')
-		file.close
+    with fileinput.FileInput("Reset Device/reset.py", inplace=True) as file:
+        for line in file:
+            print(line.replace("[[project_dir]]", project_path), end='')
+        file.close
 
 while True:
     while GPIO.input(18) == 1:
