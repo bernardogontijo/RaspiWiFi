@@ -19,7 +19,7 @@ def update_config_paths():
     project_path = '/home/pi/Downloads/RaspiWiFi/'
     os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/rc.local.aphost.template static_files/rc.local.aphost')
     os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/rc.local.apclient.template static_files/rc.local.apclient')
-    os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset\ Device/reset.py.template /home/pi/Downloads/RaspiWiFi/Reset Device/reset.py')
+    os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset\ Device/reset.py.template /home/pi/Downloads/RaspiWiFi/Reset\ Device/reset.py')
 
     with fileinput.FileInput("/home/pi/Downloads/RaspiWiFi/Reset Device/static_files/rc.local.aphost", inplace=True) as file:
         for line in file:
