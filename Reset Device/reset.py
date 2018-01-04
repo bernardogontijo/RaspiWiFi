@@ -12,6 +12,10 @@ counter = 0
 
 def update_config_paths():
     project_path = os.path.dirname(os.path.abspath(__file__))
+    print(project_path)
+    time.sleep(5)
+    print(os.path.abspath(os.path.join(project_path, os.pardir)))
+    time.sleep(5)
     os.system('sudo cp -a static_files/rc.local.aphost.template static_files/rc.local.aphost')
     os.system('sudo cp -a static_files/rc.local.apclient.template static_files/rc.local.apclient')
     os.system('sudo cp -a reset.py.template reset.py')
