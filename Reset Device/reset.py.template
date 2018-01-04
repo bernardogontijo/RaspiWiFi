@@ -17,9 +17,9 @@ def update_config_paths():
     print(os.path.abspath(os.path.join(project_path, os.pardir)))
     time.sleep(5)
     project_path = '/home/pi/Downloads/RaspiWiFi/'
-    os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset Device/static_files/rc.local.aphost.template static_files/rc.local.aphost')
-    os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset Device/static_files/rc.local.apclient.template static_files/rc.local.apclient')
-    os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset Device/reset.py.template /home/pi/Downloads/RaspiWiFi/Reset Device/reset.py')
+    os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/rc.local.aphost.template static_files/rc.local.aphost')
+    os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/rc.local.apclient.template static_files/rc.local.apclient')
+    os.system('sudo cp -a /home/pi/Downloads/RaspiWiFi/Reset\ Device/reset.py.template /home/pi/Downloads/RaspiWiFi/Reset Device/reset.py')
 
     with fileinput.FileInput("/home/pi/Downloads/RaspiWiFi/Reset Device/static_files/rc.local.aphost", inplace=True) as file:
         for line in file:
@@ -48,13 +48,13 @@ while True:
             update_config_paths()
             os.system('sudo rm -f /etc/wpa_supplicant/wpa_supplicant.conf')
             os.system('rm -f ./tmp/*')
-            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset Device/static_files/dhcpd.conf /etc/dhcp/')
-            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset Device/static_files/hostapd.conf /etc/hostapd/')
-            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset Device/static_files/interfaces.aphost /etc/network/interfaces')
-            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset Device/static_files/isc-dhcp-server.aphost /etc/default/isc-dhcp-server')
-            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset Device/static_files/rc.local.aphost /etc/rc.local')
-            print("Done. Now reboot")
-            time.sleep(1)
+            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/dhcpd.conf /etc/dhcp/')
+            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/hostapd.conf /etc/hostapd/')
+            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/interfaces.aphost /etc/network/interfaces')
+            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/isc-dhcp-server.aphost /etc/default/isc-dhcp-server')
+            os.system('sudo cp -r /home/pi/Downloads/RaspiWiFi/Reset\ Device/static_files/rc.local.aphost /etc/rc.local')
+            print("Done. Now reboot in 10...")
+            time.sleep(10)
             os.system('sudo reboot')
             
 
